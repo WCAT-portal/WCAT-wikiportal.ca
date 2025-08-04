@@ -2,70 +2,108 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>WCAT Internal Wiki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>WCAT Wiki</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      padding: 2rem;
-      background: #ffffff;
       max-width: 900px;
-      margin: auto;
+      margin: 2rem auto;
+      padding: 1rem;
+      line-height: 1.6;
+      background-color: #f7f9fc;
+      color: #222;
     }
     header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 2px solid #eee;
-      padding-bottom: 1rem;
+      text-align: center;
       margin-bottom: 2rem;
     }
-    header img {
-      height: 50px;
+    h1 {
+      margin-bottom: 0.5rem;
+      color: #006837;
     }
-    .logout {
-      background: #c62828;
+    nav {
+      margin-bottom: 2rem;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 0.5rem;
+    }
+    nav a {
+      margin-right: 1rem;
+      text-decoration: none;
+      color: #006837;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    section {
+      margin-bottom: 2rem;
+    }
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #555;
+      border-top: 1px solid #ccc;
+      padding-top: 1rem;
+    }
+    #logoutBtn {
+      background-color: #cc0000;
       color: white;
-      padding: 0.5rem 1rem;
       border: none;
-      border-radius: 5px;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
       cursor: pointer;
+      float: right;
+      margin-top: -3.5rem;
     }
-    .logout:hover {
-      background: #a71d2a;
-    }
-    h2 {
-      color: #00663a;
+    #logoutBtn:hover {
+      background-color: #990000;
     }
   </style>
 </head>
 <body>
   <header>
-    <img src="logo.png" alt="WCAT Logo" />
-    <button class="logout" onclick="logout()">Logout</button>
+    <h1>WCAT Wiki</h1>
+    <button id="logoutBtn">Log Out</button>
+    <p>Your internal business documentation</p>
   </header>
 
-  <h1>Welcome to WCAT Internal Wiki</h1>
-  <p>This is your internal documentation space. Feel free to organize this into sections like:</p>
+  <nav>
+    <a href="#getting-started">Getting Started</a>
+    <a href="#policies">Policies</a>
+    <a href="#faq">FAQ</a>
+  </nav>
 
-  <ul>
-    <li><strong>Company Policies</strong></li>
-    <li><strong>How-to Guides</strong></li>
-    <li><strong>Technical Docs</strong></li>
-    <li><strong>Onboarding Info</strong></li>
-  </ul>
+  <section id="getting-started">
+    <h2>Getting Started</h2>
+    <p>Welcome to WCAT's internal wiki! Here you'll find essential information to get up and running.</p>
+  </section>
 
-  <p>Edit this page (`wiki.html`) to add more content or link to additional markdown-style pages.</p>
+  <section id="policies">
+    <h2>Policies</h2>
+    <p>Company policies and procedures will be documented here.</p>
+  </section>
+
+  <section id="faq">
+    <h2>FAQ</h2>
+    <p>Common questions and answers for WCAT employees.</p>
+  </section>
+
+  <footer>
+    &copy; 2025 WCAT. All rights reserved.
+  </footer>
 
   <script>
-    if (sessionStorage.getItem('loggedIn') !== 'true') {
+    // Redirect to login if not logged in
+    if (localStorage.getItem('loggedIn') !== 'true') {
       window.location.href = 'index.html';
     }
 
-    function logout() {
-      sessionStorage.removeItem('loggedIn');
+    // Logout button clears login state
+    document.getElementById('logoutBtn').addEventListener('click', () => {
+      localStorage.removeItem('loggedIn');
       window.location.href = 'index.html';
-    }
+    });
   </script>
 </body>
 </html>
