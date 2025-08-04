@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WCAT Internal Wiki</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+      background: #ffffff;
+      max-width: 900px;
+      margin: auto;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 1rem;
+      margin-bottom: 2rem;
+    }
+    header img {
+      height: 50px;
+    }
+    .logout {
+      background: #c62828;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .logout:hover {
+      background: #a71d2a;
+    }
+    h2 {
+      color: #00663a;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="logo.png" alt="WCAT Logo" />
+    <button class="logout" onclick="logout()">Logout</button>
+  </header>
+
+  <h1>Welcome to WCAT Internal Wiki</h1>
+  <p>This is your internal documentation space. Feel free to organize this into sections like:</p>
+
+  <ul>
+    <li><strong>Company Policies</strong></li>
+    <li><strong>How-to Guides</strong></li>
+    <li><strong>Technical Docs</strong></li>
+    <li><strong>Onboarding Info</strong></li>
+  </ul>
+
+  <p>Edit this page (`wiki.html`) to add more content or link to additional markdown-style pages.</p>
+
+  <script>
+    if (sessionStorage.getItem('loggedIn') !== 'true') {
+      window.location.href = 'index.html';
+    }
+
+    function logout() {
+      sessionStorage.removeItem('loggedIn');
+      window.location.href = 'index.html';
+    }
+  </script>
+</body>
+</html>

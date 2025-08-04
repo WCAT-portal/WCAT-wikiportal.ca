@@ -1,10 +1,87 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>My GitHub Page</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WCAT Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .login-box {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      width: 300px;
+      text-align: center;
+    }
+    .login-box img {
+      max-width: 120px;
+      margin-bottom: 1rem;
+    }
+    .login-box input {
+      width: 100%;
+      padding: 10px;
+      margin: 0.5rem 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    .login-box button {
+      width: 100%;
+      padding: 10px;
+      background: #00663a;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      margin-top: 1rem;
+      cursor: pointer;
+    }
+    .login-box button:hover {
+      background: #004d2c;
+    }
+    .error {
+      color: red;
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+    }
+  </style>
 </head>
 <body>
-  <h1>Hello from GitHub Desktop!</h1>
-  <p>This is my first webpage.</p>
+  <div class="login-box">
+    <img src="logo.png" alt="WCAT Logo" />
+    <h2>WCAT Wiki Login</h2>
+    <input id="username" type="text" placeholder="Username" />
+    <input id="password" type="password" placeholder="Password" />
+    <button onclick="login()">Login</button>
+    <div class="error" id="error-msg"></div>
+  </div>
+
+  <script>
+    const validUser = 'admin';
+    const validPass = 'wcat123';
+
+    function login() {
+      const user = document.getElementById('username').value;
+      const pass = document.getElementById('password').value;
+      const error = document.getElementById('error-msg');
+
+      if (user === validUser && pass === validPass) {
+        sessionStorage.setItem('loggedIn', 'true');
+        window.location.href = 'wiki.html';
+      } else {
+        error.textContent = 'Invalid username or password.';
+      }
+    }
+
+    if (sessionStorage.getItem('loggedIn') === 'true') {
+      window.location.href = 'wiki.html';
+    }
+  </script>
 </body>
 </html>
