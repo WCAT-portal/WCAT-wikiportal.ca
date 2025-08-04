@@ -83,12 +83,13 @@
     </div>
     <button class="logout-btn" id="logoutBtn">Logout</button>
   </header>
-  
+
   <nav class="tabs">
     <div class="tab active" data-tab="overview">Overview</div>
     <div class="tab" data-tab="setup">Setup</div>
     <div class="tab" data-tab="usage">Usage</div>
     <div class="tab" data-tab="faq">FAQ</div>
+    <div class="tab" data-tab="scenario">Scenario</div>
   </nav>
 
   <main class="content">
@@ -96,22 +97,66 @@
       <h2>Overview</h2>
       <p>Welcome to the WCAT internal wiki! This section contains general information about the company and its mission.</p>
     </section>
+
     <section id="setup">
       <h2>Setup</h2>
       <p>Instructions and guides on how to set up your development environment and tools.</p>
     </section>
+
     <section id="usage">
       <h2>Usage</h2>
       <p>Guidelines on how to use WCAT systems, applications, and workflows.</p>
     </section>
+
     <section id="faq">
       <h2>Frequently Asked Questions</h2>
       <p>Common questions and answers to assist you with WCAT processes.</p>
     </section>
+
+    <section id="scenario">
+      <h2>Scenario A – School Infrastructure Demo</h2>
+      <p>
+        A small Information Technology school is being built nearby. To facilitate learning and work, several IT
+        services are needed. The school will require:
+      </p>
+      <ul>
+        <li>Reliable internet access for all users</li>
+        <li>A directory service for managing user accounts and authentication</li>
+        <li>Role-based user accounts</li>
+        <li>Internal email communications</li>
+        <li>A public-facing website</li>
+        <li>Network and system redundancy</li>
+        <li>Basic and advanced security protocols</li>
+      </ul>
+
+      <p>
+        The infrastructure will be segmented into a minimum of four subnets and user groups:
+      </p>
+      <ul>
+        <li><strong>Students / Guest Access</strong></li>
+        <li><strong>Instructors</strong></li>
+        <li><strong>Staff</strong> (non-instructional)</li>
+        <li><strong>IT Department</strong></li>
+      </ul>
+
+      <p>
+        The school expects to accommodate between 250 and 500 students at any given time. Additionally:
+      </p>
+      <ul>
+        <li>There are <strong>7 lab rooms</strong> with <strong>25 workstations</strong> per room</li>
+        <li><strong>3 general-purpose rooms</strong> will require basic internet access</li>
+      </ul>
+
+      <p>
+        This scenario outlines the demo our group would present if contracted to build the full production environment.
+        The mock-up includes high-level design recommendations, example configurations, and an overview of system expectations.
+        Final construction would depend on thorough documentation provided by the school.
+      </p>
+    </section>
   </main>
 
   <script>
-    // Tabs functionality
+    // Tabs
     const tabs = document.querySelectorAll('.tab');
     const sections = document.querySelectorAll('section');
 
@@ -125,7 +170,7 @@
       });
     });
 
-    // Logout functionality
+    // Logout
     document.getElementById('logoutBtn').addEventListener('click', () => {
       sessionStorage.removeItem('loggedIn');
       window.location.href = 'index.html';
