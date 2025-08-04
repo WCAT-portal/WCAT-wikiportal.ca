@@ -45,6 +45,7 @@
       display: flex;
       background: #ddd;
       border-bottom: 2px solid #00cc66;
+      flex-wrap: wrap;
     }
     .tab {
       padding: 1rem 2rem;
@@ -73,6 +74,13 @@
     section.active {
       display: block;
     }
+    img {
+      max-width: 100%;
+      height: auto;
+      margin: 1rem 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
   </style>
 </head>
 <body>
@@ -89,6 +97,7 @@
     <div class="tab" data-tab="setup">Setup</div>
     <div class="tab" data-tab="usage">Usage</div>
     <div class="tab" data-tab="scenario">Scenario</div>
+    <div class="tab" data-tab="network">Network</div>
   </nav>
 
   <main class="content">
@@ -147,10 +156,19 @@
         Final construction would depend on thorough documentation provided by the school.
       </p>
     </section>
+
+    <section id="network">
+      <h2>Network Topology & VLAN Plan</h2>
+
+      <h3>Network Topology Diagram</h3>
+      <img src="a759c50b-4d7c-4fb1-80a5-118c10b7c288.png" alt="Network Diagram" />
+
+      <h3 style="margin-top:2rem;">IP Addressing and VLAN Table</h3>
+      <img src="52acc4bb-c7d6-4cc3-a3c9-414bc5e7550c.png" alt="VLAN and Subnet Table" />
+    </section>
   </main>
 
   <script>
-    // Tabs
     const tabs = document.querySelectorAll('.tab');
     const sections = document.querySelectorAll('section');
 
@@ -164,7 +182,6 @@
       });
     });
 
-    // Logout
     document.getElementById('logoutBtn').addEventListener('click', () => {
       sessionStorage.removeItem('loggedIn');
       window.location.href = 'index.html';
@@ -172,3 +189,4 @@
   </script>
 </body>
 </html>
+
