@@ -94,14 +94,15 @@
   </footer>
 
   <script>
-    // Redirect to login if not logged in
-    if (localStorage.getItem('loggedIn') !== 'true') {
+    console.log('wiki.html loaded, checking login status...');
+    if (sessionStorage.getItem('loggedIn') !== 'true') {
+      console.log('Not logged in, redirecting to login page');
       window.location.href = 'index.html';
     }
 
-    // Logout button clears login state
     document.getElementById('logoutBtn').addEventListener('click', () => {
-      localStorage.removeItem('loggedIn');
+      sessionStorage.removeItem('loggedIn');
+      console.log('Logged out, redirecting to login page');
       window.location.href = 'index.html';
     });
   </script>

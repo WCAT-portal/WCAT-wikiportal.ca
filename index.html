@@ -65,7 +65,8 @@
 
   <script>
     // Redirect if already logged in
-    if (localStorage.getItem('loggedIn') === 'true') {
+    if (sessionStorage.getItem('loggedIn') === 'true') {
+      console.log('Already logged in, redirecting...');
       window.location.href = 'wiki.html';
     }
 
@@ -74,9 +75,9 @@
       const username = document.getElementById('username').value.trim();
       const password = document.getElementById('password').value.trim();
 
-      // Simple hardcoded check (demo only!)
       if (username === 'admin' && password === 'password') {
-        localStorage.setItem('loggedIn', 'true'); // Save login state
+        sessionStorage.setItem('loggedIn', 'true');
+        console.log('Login successful, redirecting to wiki.html');
         window.location.href = 'wiki.html';
       } else {
         alert('Invalid username or password');
