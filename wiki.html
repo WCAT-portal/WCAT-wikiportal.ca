@@ -19,6 +19,7 @@
       display: flex;
       align-items: center;
       gap: 1rem;
+      justify-content: space-between;
     }
     header img {
       height: 50px;
@@ -26,6 +27,19 @@
       border-radius: 4px;
       background: white;
       padding: 4px;
+    }
+    .logout-btn {
+      background: white;
+      color: #00cc66;
+      border: none;
+      border-radius: 4px;
+      padding: 0.5rem 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .logout-btn:hover {
+      background-color: #e6e6e6;
     }
     .tabs {
       display: flex;
@@ -63,8 +77,11 @@
 </head>
 <body>
   <header>
-    <img src="logo.png" alt="WCAT Logo" />
-    WCAT Documentation Wiki
+    <div style="display: flex; align-items: center; gap: 1rem;">
+      <img src="logo.png" alt="WCAT Logo" />
+      WCAT Documentation Wiki
+    </div>
+    <button class="logout-btn" id="logoutBtn">Logout</button>
   </header>
   
   <nav class="tabs">
@@ -94,6 +111,7 @@
   </main>
 
   <script>
+    // Tabs functionality
     const tabs = document.querySelectorAll('.tab');
     const sections = document.querySelectorAll('section');
 
@@ -105,6 +123,12 @@
         tab.classList.add('active');
         document.getElementById(tab.dataset.tab).classList.add('active');
       });
+    });
+
+    // Logout functionality
+    document.getElementById('logoutBtn').addEventListener('click', () => {
+      sessionStorage.removeItem('loggedIn');
+      window.location.href = 'index.html';
     });
   </script>
 </body>
