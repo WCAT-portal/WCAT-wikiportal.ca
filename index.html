@@ -64,7 +64,6 @@
   </div>
 
   <script>
-    // Redirect if already logged in
     if (sessionStorage.getItem('loggedIn') === 'true') {
       console.log('Already logged in, redirecting...');
       window.location.href = 'wiki.html';
@@ -77,6 +76,7 @@
 
       console.log('Username:', username);
       console.log('Password:', password);
+      alert(`You entered password: "${password}"`);
 
       if (username === 'admin' && password === 'Cap$tone25!') {
         sessionStorage.setItem('loggedIn', 'true');
