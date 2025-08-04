@@ -7,103 +7,93 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 1rem;
-      line-height: 1.6;
-      background-color: #f7f9fc;
-      color: #222;
+      margin: 0; padding: 0;
+      background: #f5f5f5;
+      color: #333;
     }
     header {
-      text-align: center;
-      margin-bottom: 2rem;
+      background-color: #00cc66;
+      color: white;
+      padding: 1rem 2rem;
+      font-size: 1.5rem;
     }
-    h1 {
-      margin-bottom: 0.5rem;
-      color: #006837;
+    .tabs {
+      display: flex;
+      background: #ddd;
+      border-bottom: 2px solid #00cc66;
     }
-    nav {
-      margin-bottom: 2rem;
-      border-bottom: 1px solid #ccc;
-      padding-bottom: 0.5rem;
+    .tab {
+      padding: 1rem 2rem;
+      cursor: pointer;
+      background: #eee;
+      border-right: 1px solid #ccc;
+      user-select: none;
+      transition: background 0.3s;
     }
-    nav a {
-      margin-right: 1rem;
-      text-decoration: none;
-      color: #006837;
+    .tab:hover {
+      background: #ccc;
+    }
+    .tab.active {
+      background: white;
+      border-bottom: 2px solid white;
       font-weight: bold;
     }
-    nav a:hover {
-      text-decoration: underline;
+    .content {
+      padding: 2rem;
+      background: white;
+      min-height: 300px;
     }
     section {
-      margin-bottom: 2rem;
+      display: none;
     }
-    footer {
-      text-align: center;
-      font-size: 0.9rem;
-      color: #555;
-      border-top: 1px solid #ccc;
-      padding-top: 1rem;
-    }
-    #logoutBtn {
-      background-color: #cc0000;
-      color: white;
-      border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 4px;
-      cursor: pointer;
-      float: right;
-      margin-top: -3.5rem;
-    }
-    #logoutBtn:hover {
-      background-color: #990000;
+    section.active {
+      display: block;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>WCAT Wiki</h1>
-    <button id="logoutBtn">Log Out</button>
-    <p>Your internal business documentation</p>
-  </header>
-
-  <nav>
-    <a href="#getting-started">Getting Started</a>
-    <a href="#policies">Policies</a>
-    <a href="#faq">FAQ</a>
+  <header>WCAT Documentation Wiki</header>
+  
+  <nav class="tabs">
+    <div class="tab active" data-tab="overview">Overview</div>
+    <div class="tab" data-tab="setup">Setup</div>
+    <div class="tab" data-tab="usage">Usage</div>
+    <div class="tab" data-tab="faq">FAQ</div>
   </nav>
 
-  <section id="getting-started">
-    <h2>Getting Started</h2>
-    <p>Welcome to WCAT's internal wiki! Here you'll find essential information to get up and running.</p>
-  </section>
-
-  <section id="policies">
-    <h2>Policies</h2>
-    <p>Company policies and procedures will be documented here.</p>
-  </section>
-
-  <section id="faq">
-    <h2>FAQ</h2>
-    <p>Common questions and answers for WCAT employees.</p>
-  </section>
-
-  <footer>
-    &copy; 2025 WCAT. All rights reserved.
-  </footer>
+  <main class="content">
+    <section id="overview" class="active">
+      <h2>Overview</h2>
+      <p>Welcome to the WCAT internal wiki! This section contains general information about the company and its mission.</p>
+    </section>
+    <section id="setup">
+      <h2>Setup</h2>
+      <p>Instructions and guides on how to set up your development environment and tools.</p>
+    </section>
+    <section id="usage">
+      <h2>Usage</h2>
+      <p>Guidelines on how to use WCAT systems, applications, and workflows.</p>
+    </section>
+    <section id="faq">
+      <h2>Frequently Asked Questions</h2>
+      <p>Common questions and answers to assist you with WCAT processes.</p>
+    </section>
+  </main>
 
   <script>
-    console.log('wiki.html loaded, checking login status...');
-    if (sessionStorage.getItem('loggedIn') !== 'true') {
-      console.log('Not logged in, redirecting to login page');
-      window.location.href = 'index.html';
-    }
+    const tabs = document.querySelectorAll('.tab');
+    const sections = document.querySelectorAll('section');
 
-    document.getElementById('logoutBtn').addEventListener('click', () => {
-      sessionStorage.removeItem('loggedIn');
-      console.log('Logged out, redirecting to login page');
-      window.location.href = 'index.html';
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        // Remove active from all tabs and sections
+        tabs.forEach(t => t.classList.remove('active'));
+        sections.forEach(s => s.classList.remove('active'));
+
+        // Add active to clicked tab and matching section
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.tab).classList.add('active');
+      });
     });
   </script>
 </body>
