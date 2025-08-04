@@ -16,6 +16,16 @@
       color: white;
       padding: 1rem 2rem;
       font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    header img {
+      height: 50px;
+      width: auto;
+      border-radius: 4px;
+      background: white;
+      padding: 4px;
     }
     .tabs {
       display: flex;
@@ -52,7 +62,10 @@
   </style>
 </head>
 <body>
-  <header>WCAT Documentation Wiki</header>
+  <header>
+    <img src="logo.png" alt="WCAT Logo" />
+    WCAT Documentation Wiki
+  </header>
   
   <nav class="tabs">
     <div class="tab active" data-tab="overview">Overview</div>
@@ -86,11 +99,9 @@
 
     tabs.forEach(tab => {
       tab.addEventListener('click', () => {
-        // Remove active from all tabs and sections
         tabs.forEach(t => t.classList.remove('active'));
         sections.forEach(s => s.classList.remove('active'));
 
-        // Add active to clicked tab and matching section
         tab.classList.add('active');
         document.getElementById(tab.dataset.tab).classList.add('active');
       });
