@@ -2,190 +2,121 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>WCAT Wiki</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      margin: 0; padding: 0;
-      background: #f5f5f5;
-      color: #333;
+      margin: 0;
+      background-color: #f4f4f4;
     }
     header {
-      background-color: #00cc66;
+      background-color: #006633;
+      padding: 1rem;
       color: white;
-      padding: 1rem 2rem;
-      font-size: 1.5rem;
       display: flex;
       align-items: center;
-      gap: 1rem;
-      justify-content: space-between;
     }
     header img {
       height: 50px;
-      width: auto;
-      border-radius: 4px;
-      background: white;
-      padding: 4px;
+      margin-right: 15px;
     }
-    .logout-btn {
-      background: white;
-      color: #00cc66;
-      border: none;
-      border-radius: 4px;
-      padding: 0.5rem 1rem;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-    .logout-btn:hover {
-      background-color: #e6e6e6;
-    }
-    .tabs {
+    nav {
+      background-color: #004d26;
       display: flex;
-      background: #ddd;
-      border-bottom: 2px solid #00cc66;
-      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 0.5rem 1rem;
     }
-    .tab {
-      padding: 1rem 2rem;
+    nav button {
+      background-color: #007a4d;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
       cursor: pointer;
-      background: #eee;
-      border-right: 1px solid #ccc;
-      user-select: none;
-      transition: background 0.3s;
+      border-radius: 4px;
     }
-    .tab:hover {
-      background: #ccc;
-    }
-    .tab.active {
-      background: white;
-      border-bottom: 2px solid white;
-      font-weight: bold;
+    nav button:hover {
+      background-color: #005f3b;
     }
     .content {
       padding: 2rem;
-      background: white;
-      min-height: 300px;
     }
-    section {
+    .tab {
       display: none;
     }
-    section.active {
+    .tab.active {
       display: block;
     }
-    img {
-      max-width: 100%;
-      height: auto;
-      margin: 1rem 0;
+    .network-img {
+      width: 100%;
+      max-width: 1000px;
+      display: block;
+      margin: 1rem auto;
       border: 1px solid #ccc;
-      border-radius: 6px;
     }
   </style>
 </head>
 <body>
   <header>
-    <div style="display: flex; align-items: center; gap: 1rem;">
-      <img src="logo.png" alt="WCAT Logo" />
-      WCAT Documentation Wiki
-    </div>
-    <button class="logout-btn" id="logoutBtn">Logout</button>
+    <img src="logo.png" alt="WCAT Logo" />
+    <h1>WCAT Internal Wiki</h1>
   </header>
 
-  <nav class="tabs">
-    <div class="tab active" data-tab="overview">Overview</div>
-    <div class="tab" data-tab="setup">Setup</div>
-    <div class="tab" data-tab="usage">Usage</div>
-    <div class="tab" data-tab="scenario">Scenario</div>
-    <div class="tab" data-tab="network">Network</div>
+  <nav>
+    <button onclick="showTab('overview')">Overview</button>
+    <button onclick="showTab('scenario')">Scenario</button>
+    <button onclick="showTab('network')">Network</button>
+    <button onclick="logout()">Logout</button>
   </nav>
 
-  <main class="content">
-    <section id="overview" class="active">
+  <div class="content">
+    <div id="overview" class="tab active">
       <h2>Overview</h2>
-      <p>Welcome to the WCAT internal wiki! This section contains general information about the company and its mission.</p>
-    </section>
+      <p>Welcome to the internal wiki for Winnipeg College of Advanced Technology. Use the tabs to navigate through documentation.</p>
+    </div>
 
-    <section id="setup">
-      <h2>Setup</h2>
-      <p>Instructions and guides on how to set up your development environment and tools.</p>
-    </section>
-
-    <section id="usage">
-      <h2>Usage</h2>
-      <p>Guidelines on how to use WCAT systems, applications, and workflows.</p>
-    </section>
-
-    <section id="scenario">
-      <h2>Scenario A – School Infrastructure Demo</h2>
+    <div id="scenario" class="tab">
+      <h2>Scenario A</h2>
       <p>
-        A small Information Technology school is being built nearby. To facilitate learning and work, several IT
-        services are needed. The school will require:
+        A small Information Technology school is being built nearby. To facilitate learning & work, several IT services are needed.
+        To put simply, the school needs internet access, a directory service, user accounts, internal email communications, a website,
+        network and system redundancy, & security.
       </p>
-      <ul>
-        <li>Reliable internet access for all users</li>
-        <li>A directory service for managing user accounts and authentication</li>
-        <li>Role-based user accounts</li>
-        <li>Internal email communications</li>
-        <li>A public-facing website</li>
-        <li>Network and system redundancy</li>
-        <li>Basic and advanced security protocols</li>
-      </ul>
-
       <p>
-        The infrastructure will be segmented into a minimum of four subnets and user groups:
+        The school needs a minimum of 4 subnets & user groups: Students (or guest access), Instructors, Staff (or other Staff outside of Instructional), & IT.
+        Between 250-500 students can be enrolled at a given time. There are 7 lab rooms with 25 workstations per room. Then, 3 general purpose rooms
+        which should have internet access.
       </p>
-      <ul>
-        <li><strong>Students / Guest Access</strong></li>
-        <li><strong>Instructors</strong></li>
-        <li><strong>Staff</strong> (non-instructional)</li>
-        <li><strong>IT Department</strong></li>
-      </ul>
-
       <p>
-        The school expects to accommodate between 250 and 500 students at any given time. Additionally:
+        Given this background, present a small demo of what the school could expect from your group if contracted to build the full production environment.
+        Construction depends on provided documentation.
       </p>
-      <ul>
-        <li>There are <strong>7 lab rooms</strong> with <strong>25 workstations</strong> per room</li>
-        <li><strong>3 general-purpose rooms</strong> will require basic internet access</li>
-      </ul>
+    </div>
 
-      <p>
-        This scenario outlines the demo our group would present if contracted to build the full production environment.
-        The mock-up includes high-level design recommendations, example configurations, and an overview of system expectations.
-        Final construction would depend on thorough documentation provided by the school.
-      </p>
-    </section>
-
-    <section id="network">
-      <h2>Network Topology & VLAN Plan</h2>
-
-      <h3>Network Topology Diagram</h3>
-      <img src="a759c50b-4d7c-4fb1-80a5-118c10b7c288.png" alt="Network Diagram" />
-
-      <h3 style="margin-top:2rem;">IP Addressing and VLAN Table</h3>
-      <img src="52acc4bb-c7d6-4cc3-a3c9-414bc5e7550c.png" alt="VLAN and Subnet Table" />
-    </section>
-  </main>
+    <div id="network" class="tab">
+      <h2>Network Diagram & VLAN Info</h2>
+      <img src="Network.png" alt="Network Diagram" class="network-img" />
+      <img src="VLAN.png" alt="VLAN Table" class="network-img" />
+    </div>
+  </div>
 
   <script>
-    const tabs = document.querySelectorAll('.tab');
-    const sections = document.querySelectorAll('section');
+    // Tab switching
+    function showTab(tabId) {
+      document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+    }
 
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        tabs.forEach(t => t.classList.remove('active'));
-        sections.forEach(s => s.classList.remove('active'));
-
-        tab.classList.add('active');
-        document.getElementById(tab.dataset.tab).classList.add('active');
-      });
-    });
-
-    document.getElementById('logoutBtn').addEventListener('click', () => {
+    // Logout button
+    function logout() {
       sessionStorage.removeItem('loggedIn');
       window.location.href = 'index.html';
-    });
+    }
+
+    // Redirect if not logged in
+    if (sessionStorage.getItem('loggedIn') !== 'true') {
+      window.location.href = 'index.html';
+    }
   </script>
 </body>
 </html>
