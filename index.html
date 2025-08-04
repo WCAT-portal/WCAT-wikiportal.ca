@@ -2,86 +2,96 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>WCAT Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login - WCAT</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #f4f4f4;
+      background: url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1470&q=80') no-repeat center center fixed;
+      background-size: cover;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
+      justify-content: center;
       height: 100vh;
+      margin: 0;
+      color: white;
     }
-    .login-box {
-      background: white;
+    .login-container {
+      background: rgba(0, 0, 0, 0.7); /* semi-transparent black for readability */
       padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
-      width: 300px;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.5);
+      width: 320px;
       text-align: center;
+      color: white;
     }
-    .login-box img {
-      max-width: 120px;
+    img {
+      height: 100px;
+      width: auto;
       margin-bottom: 1rem;
     }
-    .login-box input {
+    input[type="text"], input[type="password"] {
       width: 100%;
-      padding: 10px;
-      margin: 0.5rem 0;
-      border-radius: 5px;
-      border: 1px solid #ccc;
+      padding: 0.5rem;
+      margin: 0.5rem 0 1rem 0;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
     }
-    .login-box button {
+    input[type="text"]:focus, input[type="password"]:focus {
+      outline: none;
+      box-shadow: 0 0 5px #00ff99;
+    }
+    button {
       width: 100%;
-      padding: 10px;
-      background: #00663a;
+      padding: 0.6rem;
+      background-color: #00cc66;
       color: white;
       border: none;
-      border-radius: 5px;
-      margin-top: 1rem;
+      border-radius: 4px;
+      font-size: 1rem;
       cursor: pointer;
+      transition: background-color 0.3s ease;
     }
-    .login-box button:hover {
-      background: #004d2c;
+    button:hover {
+      background-color: #00994d;
     }
     .error {
-      color: red;
-      font-size: 0.9rem;
-      margin-top: 0.5rem;
+      color: #ff6666;
+      margin-bottom: 1rem;
     }
   </style>
 </head>
 <body>
-  <div class="login-box">
+  <div class="login-container">
     <img src="logo.png" alt="WCAT Logo" />
-    <h2>WCAT Wiki Login</h2>
-    <input id="username" type="text" placeholder="Username" />
-    <input id="password" type="password" placeholder="Password" />
-    <button onclick="login()">Login</button>
-    <div class="error" id="error-msg"></div>
+    <h2>Login</h2>
+    <form id="loginForm">
+      <input type="text" id="username" placeholder="Username" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <div class="error" id="errorMsg" style="display:none;">Invalid username or password.</div>
+      <button type="submit">Log In</button>
+    </form>
   </div>
 
   <script>
-    const validUser = 'admin';
-    const validPass = 'wcat123';
+    const form = document.getElementById('loginForm');
+    const errorMsg = document.getElementById('errorMsg');
 
-    function login() {
-      const user = document.getElementById('username').value;
-      const pass = document.getElementById('password').value;
-      const error = document.getElementById('error-msg');
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
 
-      if (user === validUser && pass === validPass) {
-        sessionStorage.setItem('loggedIn', 'true');
+      // Simple hardcoded check for demo purposes
+      if (username === 'admin' && password === 'password') {
         window.location.href = 'wiki.html';
       } else {
-        error.textContent = 'Invalid username or password.';
+        errorMsg.style.display = 'block';
       }
-    }
-
-    if (sessionStorage.getItem('loggedIn') === 'true') {
-      window.location.href = 'wiki.html';
-    }
+    });
   </script>
 </body>
 </html>
+
