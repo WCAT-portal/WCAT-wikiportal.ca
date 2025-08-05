@@ -3,45 +3,43 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>WCAT Internal Wiki</title>
+  <title>WCAT Wiki</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
       margin: 0;
-      padding: 0;
+      background-color: #f4f4f4;
     }
     header {
-      background-color: #006633;
-      color: white;
+      background-color: #005f3c;
       padding: 1rem;
+      color: white;
       display: flex;
       align-items: center;
-      justify-content: space-between;
     }
     header img {
-      height: 50px;
+      height: 60px;
+      margin-right: 1rem;
     }
     nav {
-      background-color: #004d26;
-      padding: 0.5rem;
       display: flex;
-      gap: 1rem;
+      background: #007a50;
+      padding: 0.5rem;
     }
     nav button {
-      background: #00994d;
+      background: none;
       border: none;
-      padding: 0.5rem 1rem;
       color: white;
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
       cursor: pointer;
-      border-radius: 4px;
     }
     nav button:hover {
-      background: #007f3f;
+      background-color: #006040;
     }
     .tab {
       display: none;
-      padding: 2rem;
+      padding: 1rem;
     }
     .tab.active {
       display: block;
@@ -50,28 +48,23 @@
       max-width: 100%;
       height: auto;
       margin: 1rem 0;
-      border: 1px solid #ccc;
     }
-    .logout {
+    .logout-btn {
+      margin-left: auto;
       background-color: #cc0000;
-      color: white;
       border: none;
       padding: 0.5rem 1rem;
-      border-radius: 4px;
+      color: white;
       cursor: pointer;
-    }
-    .logout:hover {
-      background-color: #990000;
+      border-radius: 4px;
     }
   </style>
 </head>
 <body>
-
   <header>
-    <div>
-      <img src="logo.png" alt="WCAT Logo" />
-    </div>
-    <button class="logout" onclick="logout()">Logout</button>
+    <img src="logo.png" alt="WCAT Logo" />
+    <h1>WCAT Internal Wiki</h1>
+    <button class="logout-btn" onclick="logout()">Logout</button>
   </header>
 
   <nav>
@@ -82,33 +75,32 @@
   </nav>
 
   <div id="overview" class="tab active">
-    <h2>Welcome to WCAT's Internal Wiki</h2>
-    <p>This wiki is a live demo of the technical documentation and network infrastructure for Winnipeg College of Advanced Technology. This portal outlines our network layout, infrastructure plans, and scenario planning as part of our IT strategy.</p>
+    <h2>Overview</h2>
+    <p>Welcome to the internal documentation wiki for WCAT (Winnipeg College of Advanced Technology). This site is a demo showcasing the internal network, IT infrastructure planning, and topology for a new campus build.</p>
   </div>
 
   <div id="scenario" class="tab">
     <h2>Scenario A</h2>
-    <p>A small Information Technology school is being built nearby. To facilitate learning & work, several IT
-    services are needed. To put simply, the school needs internet access, a directory service, user accounts, internal
-    email communications, a website, network and system redundancy, & security.</p>
-
-    <p>The school needs a minimum of 4 subnets & user groups: Students (or guest access), Instructors, Staff
-    (or other Staff outside of Instructional), & IT. Between 250-500 students can be enrolled at a given time. There
-    are 7 lab rooms with 25 workstations per room. Then, 3 general purpose rooms which should have internet
-    access.</p>
-
-    <p>Given this background, present a small demo of what the school could expect from your group if
-    contracted to build the full production environment. Construction depends on provided documentation.</p>
+    <p>
+      A small Information Technology school is being built nearby. To facilitate learning & work, several IT services are needed. To put simply, the school needs internet access, a directory service, user accounts, internal email communications, a website, network and system redundancy, & security.
+    </p>
+    <p>
+      The school needs a minimum of 4 subnets & user groups: Students (or guest access), Instructors, Staff (or other Staff outside of Instructional), & IT. Between 250-500 students can be enrolled at a given time. There are 7 lab rooms with 25 workstations per room. Then, 3 general purpose rooms which should have internet access.
+    </p>
+    <p>
+      Given this background, present a small demo of what the school could expect from your group if contracted to build the full production environment. Construction depends on provided documentation.
+    </p>
   </div>
 
   <div id="network" class="tab">
-    <h2>Network Diagram</h2>
+    <h2>Network</h2>
     <p>Here is WCAT's network diagram. This diagram was made in packet tracer and replicates what our network would look like within the building. However due to our resources our demo will only be about the IT office infrastructure.</p>
     <img src="Network.png" alt="Network Diagram" class="network-img" />
+    <p style="text-align: center; font-style: italic;">Figure: Network Layout Diagram</p>
 
-    <h2>VLAN Table</h2>
-    <p>This is our VLAN table where all our subnets for the network diagram are. Each classroom subnet is a /27 network due to meet the 25 lab workstation requirement. The other subnets are broken down as well to have the appropriate amount of subnets as well. An Extra VLAN of VLAN 130 is added for scalability. The WiFi private and guest subnets are also added for both routers and the internal WiFi router is in the Domain Controllers VLAN</p>
+    <p>This is our VLAN table where all our subnets for the network diagram are. Each classroom subnet is a /27 network due to meet the 25 lab workstation requirement. The other subnets are broken down as well to have the appropriate amount of subnets as well. An Extra VLAN of VLAN 130 is added for scalability. The WiFi private and guest subnets are also added for both routers and the internal WiFi router is in the Domain Controllers VLAN.</p>
     <img src="VLAN.png" alt="VLAN Table" class="network-img" />
+    <p style="text-align: center; font-style: italic;">Figure: VLAN and Subnet Configuration</p>
   </div>
 
   <div id="topologies" class="tab">
@@ -116,15 +108,16 @@
     <p>This layout shows the physical topology of the Winnipeg College of Advanced Technology (WCAT) building. Each classroom and lab space is wired to switches that connect back to the server room.</p>
     <img src="topology-layout.png" alt="WCAT Building Topology Layout" class="network-img" />
     <p style="text-align: center; font-style: italic;">Figure: WCAT Building Layout & Physical Network Topology</p>
+
+    <h3>Topology Object Key</h3>
+    <p>Below is a key to help identify the objects used in our topology layout above. This visual key shows the symbols used for doors, computers, and Ethernet cables.</p>
+    <img src="topology-key.png" alt="Topology Object Key" class="network-img" style="max-width: 250px;" />
   </div>
 
   <script>
-    function showTab(tabId) {
-      const tabs = document.querySelectorAll('.tab');
-      tabs.forEach(tab => {
-        tab.classList.remove('active');
-      });
-      document.getElementById(tabId).classList.add('active');
+    function showTab(id) {
+      document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
     }
 
     function logout() {
@@ -132,7 +125,7 @@
       window.location.href = 'index.html';
     }
 
-    // Redirect to login if not authenticated
+    // Prevent unauthorized access
     if (sessionStorage.getItem('loggedIn') !== 'true') {
       window.location.href = 'index.html';
     }
