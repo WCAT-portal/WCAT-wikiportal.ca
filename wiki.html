@@ -2,152 +2,175 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>WCAT Wiki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WCAT - Winnipeg College of Advanced Technology</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
-      background-color: #f4f4f4;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #e6f5e9;
+      color: #1f3d1f;
     }
+
     header {
-      background-color: #005f3c;
-      padding: 1rem;
+      background-color: #2e7d32;
       color: white;
-      display: flex;
-      align-items: center;
+      padding: 1rem;
+      text-align: center;
     }
-    header img {
-      height: 60px;
-      margin-right: 1rem;
-    }
+
     nav {
       display: flex;
-      background: #007a50;
-      padding: 0.5rem;
+      justify-content: center;
+      background-color: #1b5e20;
     }
+
     nav button {
       background: none;
       border: none;
       color: white;
-      font-size: 1rem;
-      padding: 0.5rem 1rem;
-      cursor: pointer;
-    }
-    nav button:hover {
-      background-color: #006040;
-    }
-    .tab {
-      display: none;
       padding: 1rem;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
     }
-    .tab.active {
+
+    nav button:hover, nav button.active {
+      background-color: #43a047;
+    }
+
+    section {
+      display: none;
+      padding: 2rem;
+    }
+
+    section.active {
       display: block;
     }
-    .network-img {
-      max-width: 100%;
-      height: auto;
-      margin: 1rem 0;
-    }
-    .logout-btn {
-      margin-left: auto;
-      background-color: #cc0000;
-      border: none;
-      padding: 0.5rem 1rem;
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #2e7d32;
       color: white;
-      cursor: pointer;
-      border-radius: 4px;
+      margin-top: 2rem;
     }
-    .logout-btn:hover {
-      background-color: #990000;
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+
+    table, th, td {
+      border: 1px solid #2e7d32;
+    }
+
+    th, td {
+      padding: 0.75rem;
+      text-align: left;
+    }
+
+    ul {
+      list-style-type: square;
+      padding-left: 1.5rem;
     }
   </style>
 </head>
 <body>
+
   <header>
-    <img src="logo.png" alt="WCAT Logo" />
-    <h1>WCAT Internal Wiki</h1>
-    <button class="logout-btn" onclick="logout()">Logout</button>
+    <h1>Winnipeg College of Advanced Technology</h1>
+    <p>Specializing in IT & Computer Science Education</p>
   </header>
 
   <nav>
-    <button onclick="showTab('overview')">Overview</button>
-    <button onclick="showTab('scenario')">Scenario</button>
-    <button onclick="showTab('network')">Network</button>
-    <button onclick="showTab('topologies')">Topologies</button>
+    <button class="tab-button active" onclick="showTab('home')">Home</button>
+    <button class="tab-button" onclick="showTab('courses')">Courses</button>
+    <button class="tab-button" onclick="showTab('schedule')">Course Times</button>
+    <button class="tab-button" onclick="showTab('contact')">Contact</button>
+    <button class="tab-button" onclick="showTab('topologies')">Topologies</button>
   </nav>
 
-  <div id="overview" class="tab active">
-    <h2>Overview</h2>
-    <p>Welcome to the internal documentation wiki for WCAT (Winnipeg College of Advanced Technology). This site is a demo showcasing the internal network, IT infrastructure planning, and topology for a new campus build.</p>
-  </div>
+  <main>
+    <section id="home" class="active">
+      <h2>Welcome to WCAT</h2>
+      <p>Your future in technology starts here. Explore cutting-edge IT programs, expert instructors, and real-world learning.</p>
+    </section>
 
-  <div id="scenario" class="tab">
-    <h2>Scenario A</h2>
-    <p>
-      A small Information Technology school is being built nearby. To facilitate learning & work, several IT services are needed. To put simply, the school needs internet access, a directory service, user accounts, internal email communications, a website, network and system redundancy, & security.
-    </p>
-    <p>
-      The school needs a minimum of 4 subnets & user groups: Students (or guest access), Instructors, Staff (or other Staff outside of Instructional), & IT. Between 250-500 students can be enrolled at a given time. There are 7 lab rooms with 25 workstations per room. Then, 3 general purpose rooms which should have internet access.
-    </p>
-    <p>
-      Given this background, present a small demo of what the school could expect from your group if contracted to build the full production environment. Construction depends on provided documentation.
-    </p>
-  </div>
+    <section id="courses">
+      <h2>IT & Computer Science Courses</h2>
+      <ul>
+        <li><strong>Web Development</strong> – HTML, CSS, JavaScript, React</li>
+        <li><strong>Software Engineering</strong> – Java, C#, Design Patterns</li>
+        <li><strong>Cybersecurity</strong> – Network Security, Ethical Hacking</li>
+        <li><strong>Data Science</strong> – Python, SQL, Machine Learning</li>
+        <li><strong>Cloud Computing</strong> – AWS, Azure, DevOps Fundamentals</li>
+        <li><strong>Networking</strong> – Cisco CCNA, Network Design</li>
+        <li><strong>Mobile App Development</strong> – Android, iOS, Flutter</li>
+      </ul>
+    </section>
 
-  <div id="network" class="tab">
-    <h2>Network</h2>
-    <p>Here is WCAT's network diagram. This diagram was made in packet tracer and replicates what our network would look like within the building. However due to our resources our demo will only be about the IT office infrastructure.</p>
-    <img src="Network.png" alt="Network Diagram" class="network-img" />
-    <p style="text-align: center; font-style: italic;">Figure: Network Layout Diagram</p>
+    <section id="schedule">
+      <h2>Course Schedule</h2>
+      <table>
+        <tr>
+          <th>Course</th>
+          <th>Time</th>
+          <th>Room</th>
+        </tr>
+        <tr>
+          <td>Web Development</td>
+          <td>9:00 AM – 10:30 AM</td>
+          <td>Room 101</td>
+        </tr>
+        <tr>
+          <td>Cybersecurity</td>
+          <td>10:45 AM – 12:15 PM</td>
+          <td>Room 202</td>
+        </tr>
+        <tr>
+          <td>Data Science</td>
+          <td>1:00 PM – 2:30 PM</td>
+          <td>Lab A</td>
+        </tr>
+        <tr>
+          <td>Cloud Computing</td>
+          <td>2:45 PM – 4:15 PM</td>
+          <td>Lab B</td>
+        </tr>
+      </table>
+    </section>
 
-    <p>This is our VLAN table where all our subnets for the network diagram are. Each classroom subnet is a /27 network due to meet the 25 lab workstation requirement. The other subnets are broken down as well to have the appropriate amount of subnets as well. An Extra VLAN of VLAN 130 is added for scalability. The WiFi private and guest subnets are also added for both routers and the internal WiFi router is in the Domain Controllers VLAN.</p>
-    <img src="VLAN.png" alt="VLAN Table" class="network-img" />
-    <p style="text-align: center; font-style: italic;">Figure: VLAN and Subnet Configuration</p>
-  </div>
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <p><strong>Email:</strong> <a href="mailto:info@wcat.edu">info@wcat.edu</a></p>
+      <p><strong>Phone:</strong> (204) 555-7890</p>
+      <p><strong>Address:</strong> 123 Tech Avenue, Winnipeg, MB, Canada</p>
+    </section>
 
-  <div id="topologies" class="tab">
-    <h2>Topologies</h2>
+    <section id="topologies">
+      <h2>Physical Topology</h2>
+      <img src="UpdatedNetwork.png" alt="Physical Network Topology" style="max-width: 100%; height: auto; border: 1px solid #2e7d32; padding: 0.5rem;">
+    </section>
+  </main>
 
-    <p>This layout shows the physical topology of the Winnipeg College of Advanced Technology (WCAT) building. Each classroom and lab space is wired to switches that connect back to the server room.</p>
-    <img src="topology-layout.png" alt="WCAT Building Topology Layout" class="network-img" />
-    <p style="text-align: center; font-style: italic;">Figure: WCAT Building Layout & Physical Network Topology</p>
-
-    <h3>Topology Object Key</h3>
-    <p>Below is a key to help identify the objects used in our topology layout above. This visual key shows the symbols used for doors, computers, and Ethernet cables.</p>
-    <img src="topology-key.png" alt="Topology Object Key" class="network-img" style="max-width: 250px;" />
-    <p style="text-align: center; font-style: italic;">Figure: Object Key for Network Diagram</p>
-
-    <h3>Topology Location</h3>
-    <p>The following diagram shows where the topology is located within the building structure to give physical reference to the equipment and wiring layout.</p>
-    <img src="topology-location.png" alt="Topology Physical Location" class="network-img" />
-    <p style="text-align: center; font-style: italic;">Figure: Topology Equipment Physical Location</p>
-
-    <h3>Logical Topology</h3>
-    <p>This diagram represents the logical topology of the WCAT network. It highlights how each classroom and department is associated with a VLAN. Each VLAN has been assigned a subnet based on its network needs and purpose within the institution.</p>
-    <img src="logical-topology.png" alt="Logical Topology with VLAN Mapping" class="network-img" />
-    <p style="text-align: center; font-style: italic;">Figure: Logical Network Topology with VLAN Assignments</p>
-
-    <h3>Extra VLAN Subnet Table</h3>
-    <p>This table shows the additional VLANs used in our logical design, including Wi-Fi VLANs and Domain Controller VLANs, with their respective IP address ranges.</p>
-    <img src="extra-vlans.png" alt="Extra VLAN IP Table" class="network-img" style="max-width: 600px;" />
-    <p style="text-align: center; font-style: italic;">Figure: Additional VLAN Subnet IPs</p>
-  </div>
+  <footer>
+    &copy; 2025 Winnipeg College of Advanced Technology
+  </footer>
 
   <script>
     function showTab(id) {
-      document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+      const tabs = document.querySelectorAll('section');
+      const buttons = document.querySelectorAll('.tab-button');
+
+      tabs.forEach(tab => tab.classList.remove('active'));
+      buttons.forEach(btn => btn.classList.remove('active'));
+
       document.getElementById(id).classList.add('active');
-    }
-
-    function logout() {
-      sessionStorage.removeItem('loggedIn');
-      window.location.href = 'index.html';
-    }
-
-    if (sessionStorage.getItem('loggedIn') !== 'true') {
-      window.location.href = 'index.html';
+      event.target.classList.add('active');
     }
   </script>
+
 </body>
 </html>
