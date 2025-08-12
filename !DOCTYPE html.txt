@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WCAT - Winnipeg College of Advanced Technology</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #e6f5e9;
+      color: #1f3d1f;
+    }
+
+    header {
+      background-color: #2e7d32;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #1b5e20;
+    }
+
+    nav button {
+      background: none;
+      border: none;
+      color: white;
+      padding: 1rem;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    nav button:hover, nav button.active {
+      background-color: #43a047;
+    }
+
+    section {
+      display: none;
+      padding: 2rem;
+    }
+
+    section.active {
+      display: block;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #2e7d32;
+      color: white;
+      margin-top: 2rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+
+    table, th, td {
+      border: 1px solid #2e7d32;
+    }
+
+    th, td {
+      padding: 0.75rem;
+      text-align: left;
+    }
+
+    ul {
+      list-style-type: square;
+      padding-left: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Winnipeg College of Advanced Technology</h1>
+    <p>Specializing in IT & Computer Science Education</p>
+  </header>
+
+  <nav>
+    <button class="tab-button active" onclick="showTab('home')">Home</button>
+    <button class="tab-button" onclick="showTab('courses')">Courses</button>
+    <button class="tab-button" onclick="showTab('schedule')">Course Times</button>
+    <button class="tab-button" onclick="showTab('contact')">Contact</button>
+    <button class="tab-button" onclick="showTab('topologies')">Topologies</button>
+  </nav>
+
+  <main>
+    <section id="home" class="active">
+      <h2>Welcome to WCAT</h2>
+      <p>Your future in technology starts here. Explore cutting-edge IT programs, expert instructors, and real-world learning.</p>
+    </section>
+
+    <section id="courses">
+      <h2>IT & Computer Science Courses</h2>
+      <ul>
+        <li><strong>Web Development</strong> – HTML, CSS, JavaScript, React</li>
+        <li><strong>Software Engineering</strong> – Java, C#, Design Patterns</li>
+        <li><strong>Cybersecurity</strong> – Network Security, Ethical Hacking</li>
+        <li><strong>Data Science</strong> – Python, SQL, Machine Learning</li>
+        <li><strong>Cloud Computing</strong> – AWS, Azure, DevOps Fundamentals</li>
+        <li><strong>Networking</strong> – Cisco CCNA, Network Design</li>
+        <li><strong>Mobile App Development</strong> – Android, iOS, Flutter</li>
+      </ul>
+    </section>
+
+    <section id="schedule">
+      <h2>Course Schedule</h2>
+      <table>
+        <tr>
+          <th>Course</th>
+          <th>Time</th>
+          <th>Room</th>
+        </tr>
+        <tr>
+          <td>Web Development</td>
+          <td>9:00 AM – 10:30 AM</td>
+          <td>Room 101</td>
+        </tr>
+        <tr>
+          <td>Cybersecurity</td>
+          <td>10:45 AM – 12:15 PM</td>
+          <td>Room 202</td>
+        </tr>
+        <tr>
+          <td>Data Science</td>
+          <td>1:00 PM – 2:30 PM</td>
+          <td>Lab A</td>
+        </tr>
+        <tr>
+          <td>Cloud Computing</td>
+          <td>2:45 PM – 4:15 PM</td>
+          <td>Lab B</td>
+        </tr>
+      </table>
+    </section>
+
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <p><strong>Email:</strong> <a href="mailto:info@wcat.edu">info@wcat.edu</a></p>
+      <p><strong>Phone:</strong> (204) 555-7890</p>
+      <p><strong>Address:</strong> 123 Tech Avenue, Winnipeg, MB, Canada</p>
+    </section>
+
+    <section id="topologies">
+      <h2>Physical Topology</h2>
+      <img src="UpdatedNetwork.png" alt="Physical Network Topology" style="max-width: 100%; height: auto; border: 1px solid #2e7d32; padding: 0.5rem;">
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Winnipeg College of Advanced Technology
+  </footer>
+
+  <script>
+    function showTab(id) {
+      const tabs = document.querySelectorAll('section');
+      const buttons = document.querySelectorAll('.tab-button');
+
+      tabs.forEach(tab => tab.classList.remove('active'));
+      buttons.forEach(btn => btn.classList.remove('active'));
+
+      document.getElementById(id).classList.add('active');
+      event.target.classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
