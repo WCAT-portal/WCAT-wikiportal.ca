@@ -25,6 +25,7 @@
       display: flex;
       background: #007a50;
       padding: 0.5rem;
+      flex-wrap: wrap;
     }
     nav button {
       background: none;
@@ -76,6 +77,7 @@
     <button onclick="showTab('network')">Network</button>
     <button onclick="showTab('topologies')">Topologies</button>
     <button onclick="showTab('configurations')">Configurations</button>
+    <button onclick="showTab('documents')">Documents</button>
   </nav>
 
   <div id="overview" class="tab active">
@@ -134,6 +136,13 @@
     <a href="Network%20Device%20Running%20Configurations.pdf" target="_blank" style="color: #007a50; text-decoration: underline; font-weight: bold;">
       View Network Device Running Configurations (PDF)
     </a>
+  </div>
+
+  <div id="documents" class="tab">
+    <h2>Documents</h2>
+    <p>Here you can upload or link additional documents relevant to the WCAT internal infrastructure and planning.</p>
+    <!-- Example link (you can add more below) -->
+    <!-- <a href="example-document.pdf" target="_blank">Example Document</a> -->
   </div>
 
   <script>
