@@ -75,6 +75,7 @@
     <button onclick="showTab('scenario')">Scenario</button>
     <button onclick="showTab('network')">Network</button>
     <button onclick="showTab('topologies')">Topologies</button>
+    <button onclick="showTab('configurations')">Configurations</button>
   </nav>
 
   <div id="overview" class="tab active">
@@ -125,6 +126,14 @@
     <p>This diagram represents the logical topology of the WCAT network. It highlights how each classroom and department is associated with a VLAN. Each VLAN has been assigned a subnet based on its network needs and purpose within the institution.</p>
     <img src="logical-topology.png" alt="Logical Topology with VLAN Mapping" class="network-img" />
     <p style="text-align: center; font-style: italic;">Figure: Logical Network Topology with VLAN Assignments</p>
+  </div>
+
+  <div id="configurations" class="tab">
+    <h2>Network Device Configurations</h2>
+    <p>Click the link below to view the full running configurations of our network devices.</p>
+    <a href="Network%20Device%20Running%20Configurations.pdf" target="_blank" style="color: #007a50; text-decoration: underline; font-weight: bold;">
+      View Network Device Running Configurations (PDF)
+    </a>
   </div>
 
   <script>
