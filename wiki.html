@@ -173,3 +173,173 @@
   </script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>WCAT Wiki</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f4f4f4;
+    }
+    header {
+      background-color: #005f3c;
+      padding: 1rem;
+      color: white;
+      display: flex;
+      align-items: center;
+    }
+    header img {
+      height: 60px;
+      margin-right: 1rem;
+    }
+    nav {
+      display: flex;
+      background: #007a50;
+      padding: 0.5rem;
+      flex-wrap: wrap;
+    }
+    nav button {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+    }
+    nav button:hover {
+      background-color: #006040;
+    }
+    .tab {
+      display: none;
+      padding: 1rem;
+    }
+    .tab.active {
+      display: block;
+    }
+    .network-img {
+      max-width: 100%;
+      height: auto;
+      margin: 1rem 0;
+    }
+    .logout-btn {
+      margin-left: auto;
+      background-color: #cc0000;
+      border: none;
+      padding: 0.5rem 1rem;
+      color: white;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    .logout-btn:hover {
+      background-color: #990000;
+    }
+    a {
+      display: inline-block;
+      margin: 0.5rem 0;
+      color: #007a50;
+      text-decoration: underline;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="logo.png" alt="WCAT Logo" />
+    <h1>WCAT Internal Wiki</h1>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+  </header>
+
+  <nav>
+    <button onclick="showTab('overview')">Overview</button>
+    <button onclick="showTab('network')">Network</button>
+    <button onclick="showTab('topologies')">Topologies</button>
+    <button onclick="showTab('configurations')">Configurations</button>
+    <button onclick="showTab('documents')">Documents</button>
+  </nav>
+
+  <div id="overview" class="tab active">
+    <h2>Overview</h2>
+    <p>Welcome to the internal documentation wiki for WCAT (Winnipeg College of Advanced Technology). This site is a demo showcasing the internal network, IT infrastructure planning, and topology for a new campus build.</p>
+
+    <h3>Scenario A</h3>
+    <p>
+      A small Information Technology school is being built nearby. To facilitate learning & work, several IT services are needed. To put simply, the school needs internet access, a directory service, user accounts, internal email communications, a website, network and system redundancy, & security.
+    </p>
+    <p>
+      The school needs a minimum of 4 subnets & user groups: Students (or guest access), Instructors, Staff (or other Staff outside of Instructional), & IT. Between 250-500 students can be enrolled at a given time. There are 7 lab rooms with 25 workstations per room. Then, 3 general purpose rooms which should have internet access.
+    </p>
+    <p>
+      Given this background, present a small demo of what the school could expect from your group if contracted to build the full production environment. Construction depends on provided documentation.
+    </p>
+  </div>
+
+  <div id="network" class="tab">
+    <h2>Network</h2>
+    <p>This section includes the IP Addressing Table used for all devices and subnets within WCAT's infrastructure.</p>
+
+    <h3>IP Addressing Table</h3>
+    <p>You can view the detailed IP Addressing Table below:</p>
+    <a href="IP%20Addressing%20Table.pdf" target="_blank">
+      Open IP Addressing Table PDF
+    </a>
+  </div>
+
+  <div id="topologies" class="tab">
+    <h2>Topologies</h2>
+
+    <h3>Physical Topology</h3>
+    <p>This is the updated physical network topology for the Winnipeg College of Advanced Technology.</p>
+    <img src="UpdatedNetwork.png" alt="Updated Physical Network Topology" class="network-img" />
+    <p style="text-align: center; font-style: italic;">Figure: Updated Physical Network Topology</p>
+
+    <h3>Topology Object Key</h3>
+    <p>Below is a key to help identify the objects used in our topology layout above. This visual key shows the symbols used for doors, computers, and Ethernet cables.</p>
+    <img src="topology-key.png" alt="Topology Object Key" class="network-img" style="max-width: 400px;" />
+    <p style="text-align: center; font-style: italic;">Figure: Object Key for Network Diagram</p>
+
+    <h3>Logical Topology</h3>
+    <p>This diagram represents the logical topology of the WCAT network. It highlights how each classroom and department is associated with a VLAN. Each VLAN has been assigned a subnet based on its network needs and purpose within the institution.</p>
+    <img src="logical-topology.png" alt="Logical Topology with VLAN Mapping" class="network-img" />
+    <p style="text-align: center; font-style: italic;">Figure: Logical Network Topology with VLAN Assignments</p>
+  </div>
+
+  <div id="configurations" class="tab">
+    <h2>Network Device Configurations</h2>
+    <p>Click the link below to view the full running configurations of our network devices.</p>
+    <a href="Network%20Device%20Running%20Configurations.pdf" target="_blank">
+      View Network Device Running Configurations (PDF)
+    </a>
+  </div>
+
+  <div id="documents" class="tab">
+    <h2>Documents</h2>
+    <p>Relevant infrastructure and operational documentation:</p>
+    <a href="MS365%20Process%20Document.pdf" target="_blank">
+      MS365 Process Document (PDF)
+    </a><br />
+    <a href="Wireless%20Router%20Process.docx" target="_blank">
+      Wireless Router Process Document (DOCX)
+    </a>
+  </div>
+
+  <script>
+    function showTab(id) {
+      document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+
+    function logout() {
+      sessionStorage.removeItem('loggedIn');
+      window.location.href = 'index.html';
+    }
+
+    if (sessionStorage.getItem('loggedIn') !== 'true') {
+      window.location.href = 'index.html';
+    }
+  </script>
+</body>
+</html>
